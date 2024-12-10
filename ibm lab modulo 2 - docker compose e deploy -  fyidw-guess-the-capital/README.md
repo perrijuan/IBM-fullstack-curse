@@ -1,4 +1,4 @@
-```markdown
+
 # **Registro de Tarefa: Deploy de Aplicação com Docker e IBM Code Engine**  
 
 ## **Descrição da Tarefa**  
