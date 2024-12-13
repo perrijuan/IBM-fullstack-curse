@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario</title>
+    <script type="application/javascript">
+        //<!--vamos definir as funcoes do java script no arquivo html-->
+
+        function checkdata(){
+            //<!--faz o get do documento que vamos usar e gerar o acesso ao html -->
+
+            var username = document.getElementById("nome");
+            var email = document.getElementById("email");
+
+            if(username.value == ""){
+                alert("porfavor insira o nome");
+                username.focus();
+                return false;
+
+            }
+
+            if(email.value == ""){
+                alert("insira o email");
+                email.focus();
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+<h2>entre com o seu login e suas informações :</h2> <br>
+<!--para a estrutura que vai aportar a entrada verificar caso a entrada nao seja satisfeita-->
+<form id="form1" onsubmit="return checkdata()">
+    <label for="nome">Name:</label>
+    <input type="text" id="nome" name="nome">
+    <br><br>
+    <label for="email">Email Address:</label>
+    <input type="text" id="email" name="email">
+    <br><br>
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+</form>
+</body>
+</html>
