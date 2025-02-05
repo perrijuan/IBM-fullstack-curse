@@ -1,0 +1,60 @@
+Cloning "https://github.com/sclorg/nodejs-ex.git" ...
+	Commit:	3401d187fdca9f32776953c2a9d77cb0e9f8b380 (Merge pull request #285 from sclorg/add_nodejs_22_support)
+	Author:	Petr Hracek <phracek@redhat.com>
+	Date:	Mon Dec 16 14:38:48 2024 +0100
+time="2025-02-05T15:16:58Z" level=info msg="Not using native diff for overlay, this may cause degraded performance for building images: kernel has CONFIG_OVERLAY_FS_REDIRECT_DIR enabled"
+I0205 15:16:58.124681       1 defaults.go:112] Defaulting to storage driver "overlay" with options [mountopt=metacopy=on].
+Caching blobs under "/var/cache/blobs".
+Trying to pull image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:a192d3d1ff9933e9f0ebf1401c3c7f016705981c7bed1e18e1fb9cd9a049a3e6...
+Getting image source signatures
+Copying blob sha256:0689084f485bb25a675a267802059646bd938910439ff15dc3695c67c72b715b
+Copying blob sha256:7985264c26f7831c4568de93de9540341757eca608aa0fabd23faec7294fbabc
+Copying blob sha256:78fe67e345ec1daa2c099a42fde1091f4f36a6181a4e95e4a4fab674671438ee
+Copying blob sha256:90c453b0054738bf88b91eb2daf878dfc368e88fbe34999694814aa8581288f2
+Copying config sha256:7f1fbce28992cf6b4e021563fb342b986768bc635d7a7117b5470322c8f95d78
+Writing manifest to image destination
+Storing signatures
+Generating dockerfile with builder image image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:a192d3d1ff9933e9f0ebf1401c3c7f016705981c7bed1e18e1fb9cd9a049a3e6
+Adding transient rw bind mount for /run/secrets/rhsm
+Adding transient rw bind mount for /run/secrets/etc-pki-entitlement
+Adding transient rw bind mount for /run/secrets/redhat.repo
+STEP 1/9: FROM image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:a192d3d1ff9933e9f0ebf1401c3c7f016705981c7bed1e18e1fb9cd9a049a3e6
+STEP 2/9: LABEL "io.openshift.build.image"="image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:a192d3d1ff9933e9f0ebf1401c3c7f016705981c7bed1e18e1fb9cd9a049a3e6"       "io.openshift.build.commit.author"="Petr Hracek <phracek@redhat.com>"       "io.openshift.build.commit.date"="Mon Dec 16 14:38:48 2024 +0100"       "io.openshift.build.commit.id"="3401d187fdca9f32776953c2a9d77cb0e9f8b380"       "io.openshift.build.commit.ref"="master"       "io.openshift.build.commit.message"="Merge pull request #285 from sclorg/add_nodejs_22_support"       "io.openshift.build.source-location"="https://github.com/sclorg/nodejs-ex.git"       "io.openshift.build.source-context-dir"="/"
+STEP 3/9: ENV OPENSHIFT_BUILD_NAME="nodejs-ex-git-1"     OPENSHIFT_BUILD_NAMESPACE="sn-labs-u1996segagli"     OPENSHIFT_BUILD_SOURCE="https://github.com/sclorg/nodejs-ex.git"     OPENSHIFT_BUILD_COMMIT="3401d187fdca9f32776953c2a9d77cb0e9f8b380"
+STEP 4/9: USER root
+STEP 5/9: COPY upload/src /tmp/src
+STEP 6/9: RUN chown -R 1001:0 /tmp/src
+STEP 7/9: USER 1001
+STEP 8/9: RUN /usr/libexec/s2i/assemble
+---> Installing application source ...
+---> Installing all dependencies
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'nodeshift@11.3.0',
+npm WARN EBADENGINE   required: { node: '^18 || ^20' },
+npm WARN EBADENGINE   current: { node: 'v16.16.0', npm: '8.11.0' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'tar@7.0.1',
+npm WARN EBADENGINE   required: { node: '>=18' },
+npm WARN EBADENGINE   current: { node: 'v16.16.0', npm: '8.11.0' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@isaacs/fs-minipass@4.0.1',
+npm WARN EBADENGINE   required: { node: '>=18.0.0' },
+npm WARN EBADENGINE   current: { node: 'v16.16.0', npm: '8.11.0' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'chownr@3.0.0',
+npm WARN EBADENGINE   required: { node: '>=18' },
+npm WARN EBADENGINE   current: { node: 'v16.16.0', npm: '8.11.0' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'minizlib@3.0.1',
+npm WARN EBADENGINE   required: { node: '>= 18' },
+npm WARN EBADENGINE   current: { node: 'v16.16.0', npm: '8.11.0' }
+npm WARN EBADENGINE }
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: 'yallist@5.0.0',
+npm WARN EBADENGINE   required: { node: '>=18' },
+npm WARN EBADENGINE   current: { node: 'v16.16.0', npm: '8.11.0' }
+npm WARN EBADENGINE }
