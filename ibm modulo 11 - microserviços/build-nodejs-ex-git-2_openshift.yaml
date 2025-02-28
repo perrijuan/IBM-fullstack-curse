@@ -1,0 +1,120 @@
+﻿kind: Build
+apiVersion: build.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/build-config.name: nodejs-ex-git
+    openshift.io/build.number: '2'
+  resourceVersion: '2043366340'
+  name: nodejs-ex-git-2
+  uid: d4c334ba-6ba0-4424-926e-59e15752bc04
+  creationTimestamp: '2025-02-27T14:13:39Z'
+  generation: 1
+  managedFields:
+    - manager: openshift-apiserver
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2025-02-27T14:13:39Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/build-config.name': {}
+            'f:openshift.io/build.number': {}
+          'f:labels':
+            'f:app.openshift.io/runtime': {}
+            'f:app': {}
+            'f:app.kubernetes.io/name': {}
+            .: {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime-version': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:openshift.io/build-config.name': {}
+            'f:app.kubernetes.io/component': {}
+            'f:buildconfig': {}
+            'f:openshift.io/build.start-policy': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"407c7f95-44f7-4dbc-b506-61b1cdc6e166"}': {}
+        'f:spec':
+          'f:output':
+            'f:to': {}
+          'f:serviceAccount': {}
+          'f:source':
+            'f:contextDir': {}
+            'f:git':
+              .: {}
+              'f:uri': {}
+            'f:type': {}
+          'f:strategy':
+            'f:sourceStrategy':
+              .: {}
+              'f:from': {}
+              'f:pullSecret': {}
+            'f:type': {}
+          'f:triggeredBy': {}
+        'f:status':
+          'f:conditions':
+            .: {}
+            'k:{"type":"New"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:status': {}
+              'f:type': {}
+          'f:config': {}
+          'f:phase': {}
+  namespace: sn-labs-u1996segagli
+  ownerReferences:
+    - apiVersion: build.openshift.io/v1
+      kind: BuildConfig
+      name: nodejs-ex-git
+      uid: 407c7f95-44f7-4dbc-b506-61b1cdc6e166
+      controller: true
+  labels:
+    app: nodejs-ex-git
+    app.kubernetes.io/part-of: nodejs-ex-git-app
+    app.kubernetes.io/instance: nodejs-ex-git
+    openshift.io/build-config.name: nodejs-ex-git
+    app.kubernetes.io/component: nodejs-ex-git
+    openshift.io/build.start-policy: Serial
+    buildconfig: nodejs-ex-git
+    app.openshift.io/runtime: nodejs
+    app.kubernetes.io/name: nodejs-ex-git
+    app.openshift.io/runtime-version: 16-ubi8
+spec:
+  serviceAccount: builder
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/sclorg/nodejs-ex.git'
+    contextDir: /
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: DockerImage
+        name: 'image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:a192d3d1ff9933e9f0ebf1401c3c7f016705981c7bed1e18e1fb9cd9a049a3e6'
+      pullSecret:
+        name: builder-dockercfg-hrcjc
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'nodejs-ex-git:latest'
+  resources: {}
+  postCommit: {}
+  nodeSelector: null
+  triggeredBy:
+    - message: Manually triggered
+status:
+  phase: New
+  config:
+    kind: BuildConfig
+    namespace: sn-labs-u1996segagli
+    name: nodejs-ex-git
+  output: {}
+  conditions:
+    - type: New
+      status: 'True'
+      lastUpdateTime: '2025-02-27T14:13:39Z'
+      lastTransitionTime: '2025-02-27T14:13:39Z'
